@@ -61,7 +61,7 @@ const SignInScreen = ( { navigation } ) => {
         <View style={styles.container}>
             <StatusBar backgroundColor="#496EF9" barStyle="light-content" />
             <View style={styles.header}>
-                <Text style={styles.text_header}>Iniciar SessionFBM</Text>
+                <Text style={styles.text_header}>Iniciar SessionFBMMM</Text>
             </View>
             <Animatable.View
                 animation="fadeInUpBig"
