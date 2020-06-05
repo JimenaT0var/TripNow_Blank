@@ -1,11 +1,11 @@
 import React from 'react';
-import { 
-    View, 
-    Text, 
-    TouchableOpacity, 
+import {
+    View,
+    Text,
+    TouchableOpacity,
     TextInput,
     Platform,
-    StyleSheet ,
+    StyleSheet,
     StatusBar,
     Alert
 } from 'react-native';
@@ -18,149 +18,149 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
 
- const SignInScreen = ({navigation}) =>{
+const SignInScreen = ( { navigation } ) => {
 
-    const [data, setData] = React.useState({
+    const [ data, setData ] = React.useState( {
         email: '',
         password: '',
         check_textInputChange: false,
         secureTextEntry: true
-    });
+    } );
 
-    const textInputChange = (val) => {
-        if( val.length != 0 ) {
-            setData({
+    const textInputChange = ( val ) => {
+        if ( val.length != 0 ) {
+            setData( {
                 ...data,
                 email: val,
                 check_textInputChange: true,
-            });
+            } );
         } else {
-            setData({
+            setData( {
                 ...data,
                 email: val,
-                check_textInputChange: false,              
-            });
+                check_textInputChange: false,
+            } );
         }
     }
 
-    const handlePasswordChange = (val) => {
-        setData({
+    const handlePasswordChange = ( val ) => {
+        setData( {
             ...data,
             password: val,
-        });
+        } );
     }
 
     const updateSecureTextEntry = () => {
-        setData({
+        setData( {
             ...data,
             secureTextEntry: !data.secureTextEntry
-        });
+        } );
     }
 
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor="#496EF9" barStyle="light-content" />
             <View style={styles.header}>
-                <Text style={styles.text_header}>Iniciar Sesión</Text>
+                <Text style={styles.text_header}>Iniciar SessionFBM</Text>
             </View>
-            <Animatable.View 
+            <Animatable.View
                 animation="fadeInUpBig"
                 style={styles.footer}
             >
                 <Text style={styles.text_footer}>Email</Text>
                 <View style={styles.action}>
-                    <FontAwesome 
+                    <FontAwesome
                         name="user-o"
                         color="#05375a"
                         size={20}
                     />
-                    <TextInput 
+                    <TextInput
                         placeholder="Usuario"
                         style={styles.textInput}
                         autoCapitalize="none"
-                        onChangeText={(val)=>textInputChange(val)}
+                        onChangeText={( val ) => textInputChange( val )}
                     />
-                    {data.check_textInputChange ? 
-                    <Animatable.View
-                        animation="bounceIn"
-                    >
-                        <Feather 
-                        name="check-circle"
-                        color="green"
-                        size={20}
-                        />
-                    </Animatable.View>                   
-                    : null}
+                    {data.check_textInputChange ?
+                        <Animatable.View
+                            animation="bounceIn"
+                        >
+                            <Feather
+                                name="check-circle"
+                                color="green"
+                                size={20}
+                            />
+                        </Animatable.View>
+                        : null}
                 </View>
-                
-                <Text style={[styles.text_footer, {marginTop: 35}]}>Contraseña</Text>
+
+                <Text style={[ styles.text_footer, { marginTop: 35 } ]}>Contraseña</Text>
                 <View style={styles.action}>
-                    <Feather 
+                    <Feather
                         name="lock"
                         color="#05375a"
                         size={20}
                     />
-                    <TextInput 
+                    <TextInput
                         placeholder="Contraseña"
                         secureTextEntry={data.secureTextEntry ? true : false}
                         style={styles.textInput}
                         autoCapitalize="none"
-                        onChangeText={(val)=>handlePasswordChange(val)}
+                        onChangeText={( val ) => handlePasswordChange( val )}
                     />
                     <TouchableOpacity
                         onPress={updateSecureTextEntry}
                     >
-                        {data.secureTextEntry ? 
-                        <Feather
-                            name="eye-off"
-                            color="grey"
-                            size={20}
-                        />
-                        :
-                        <Feather
-                            name="eye"
-                            color="grey"
-                            size={20}
-                        />
+                        {data.secureTextEntry ?
+                            <Feather
+                                name="eye-off"
+                                color="grey"
+                                size={20}
+                            />
+                            :
+                            <Feather
+                                name="eye"
+                                color="grey"
+                                size={20}
+                            />
                         }
-                    </TouchableOpacity>                 
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.button}>
-                <TouchableOpacity onPress={()=>navigation.navigate('MainTabScreen')} >
-                    <LinearGradient
-                        colors={['#9963F2','#63CFF2']}
-                        style={styles.signIn}
-                    >
-                        <Text style={[styles.textSign,{
-                            color:'#fff'
-                        }]}>Sign In</Text>
-                    </LinearGradient>
-                </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate( 'MainTabScreen' )} >
+                        <LinearGradient
+                            colors={[ '#9963F2', '#63CFF2' ]}
+                            style={styles.signIn}
+                        >
+                            <Text style={[ styles.textSign, {
+                                color: '#fff'
+                            } ]}>Sign In</Text>
+                        </LinearGradient>
+                    </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('SignUpScreen')}
-                        style={[styles.signIn,{
+                        onPress={() => navigation.navigate( 'SignUpScreen' )}
+                        style={[ styles.signIn, {
                             borderColor: '#496EF9',
                             borderWidth: 1,
                             marginTop: 15
-                        }]}
+                        } ]}
                     >
-                        <Text style={[styles.textSign,{
+                        <Text style={[ styles.textSign, {
                             color: '#496EF9'
-                        }]}>Sign Up</Text>
+                        } ]}>Sign Up</Text>
                     </TouchableOpacity>
                 </View>
             </Animatable.View>
-          </View>
-        );
-      };
+        </View>
+    );
+};
 
 export default SignInScreen;
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create( {
     container: {
-      flex: 1, 
-      backgroundColor: '#496EF9'
+        flex: 1,
+        backgroundColor: '#496EF9'
     },
     header: {
         flex: 1,
@@ -224,4 +224,4 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold'
     }
-  });
+} );
