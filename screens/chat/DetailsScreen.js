@@ -11,7 +11,7 @@ import {
 const DetailsScreen = ({navigation}) =>{
     return (
       <View style={{flex:1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
+        <Text>Chat Screen</Text>
         <Button
           title="Go to details screen...again"
           onPress={() => navigation.push("Details")}

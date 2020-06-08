@@ -3,10 +3,10 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import HomeScreen from './HomeScreen';
-import DetailsScreen from './DetailsScreen';
-import ExploreScreen from './ExploreScreen';
-import ProfileScreen from './ProfileScreen';
+import HomeScreen from './home/HomeScreen';
+import DetailsScreen from './chat/DetailsScreen';
+import ExploreScreen from './settings/ExploreScreen';
+import ProfileScreen from './notifications/ProfileScreen';
 
 const HomeStack = createStackNavigator();
 const DetailsStack = createStackNavigator();
@@ -37,7 +37,7 @@ const MainTabScreen = () => (
           tabBarLabel: 'Updates',
           tabBarColor: '#009387',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-notifications" color={color} size={26} />
+            <Icon name="ios-chatbubbles" color={color} size={26} />
           ),
         }}
       />
@@ -48,7 +48,7 @@ const MainTabScreen = () => (
           tabBarLabel: 'Profile',
           tabBarColor: '#694fad',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-person" color={color} size={26} />
+            <Icon name="ios-notifications" color={color} size={26} />
           ),
         }}
       />
@@ -59,7 +59,7 @@ const MainTabScreen = () => (
           tabBarLabel: 'Explore',
           tabBarColor: '#d02860',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-aperture" color={color} size={26} />
+            <Icon name="ios-settings" color={color} size={26} />
           ),
         }}
       />
