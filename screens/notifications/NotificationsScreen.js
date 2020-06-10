@@ -9,10 +9,10 @@ import {
     Button } from 'react-native';
 
 
- const ExploreScreen = () =>{
+ const NotificationsScreen = () =>{
     return (
         <View style={styles.container}>
-            <Text>Settings Screen</Text>
+            <Text>Notifications Screen</Text>
             <Button
               title="Click Here"
               onPress={() => alert('Button Clicked!')}
@@ -21,7 +21,7 @@ import {
         );
       };
 
-export default ExploreScreen;
+export default NotificationsScreen;
 
 const styles = StyleSheet.create({
     container: {

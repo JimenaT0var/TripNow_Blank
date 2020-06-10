@@ -4,12 +4,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from './home/HomeScreen';
-import DetailsScreen from './chat/DetailsScreen';
-import ExploreScreen from './settings/ExploreScreen';
-import ProfileScreen from './notifications/ProfileScreen';
+import ChatScreen from './chat/ChatScreen';
+import SettingsScreen from './settings/SettingsScreen';
+import NotificationsScreen from './notifications/NotificationsScreen';
 
 const HomeStack = createStackNavigator();
-const DetailsStack = createStackNavigator();
+const ChatStack = createStackNavigator();
+const NotificationsStack = createStackNavigator();
+const SettingsStack = createStackNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -31,10 +33,10 @@ const MainTabScreen = () => (
         }}
       />
       <Tab.Screen
-        name="Notifications"
-        component={DetailsStackScreen}
+        name="Chat"
+        component={ChatStackScreen}
         options={{
-          tabBarLabel: 'Updates',
+          tabBarLabel: 'Chat',
           tabBarColor: '#009387',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-chatbubbles" color={color} size={26} />
@@ -42,10 +44,10 @@ const MainTabScreen = () => (
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
+        name="Notifications"
+        component={NotificationsStackScreen}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'Notifications',
           tabBarColor: '#694fad',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-notifications" color={color} size={26} />
@@ -53,10 +55,10 @@ const MainTabScreen = () => (
         }}
       />
       <Tab.Screen
-        name="Explore"
-        component={ExploreScreen}
+        name="Settings"
+        component={SettingsStackScreen}
         options={{
-          tabBarLabel: 'Explore',
+          tabBarLabel: 'Settings',
           tabBarColor: '#d02860',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-settings" color={color} size={26} />
@@ -80,7 +82,7 @@ const HomeStackScreen = ({navigation}) => (
      }
    }}>
      <HomeStack.Screen name="Home" component={HomeScreen} options={{
-       title:'Overview',
+       title:'HOME',
        headerLeft: () => (
          <Icon.Button name="ios-menu" size={25} backgroundColor="#496EF9" onPress={() => navigation.openDrawer()}></Icon.Button>
        )
@@ -88,8 +90,8 @@ const HomeStackScreen = ({navigation}) => (
    </HomeStack.Navigator>
   );
   
-  const DetailsStackScreen = ({navigation}) => (
-    <DetailsStack.Navigator screenOptions={{
+  const ChatStackScreen = ({navigation}) => (
+    <ChatStack.Navigator screenOptions={{
       headerStyle: {
        backgroundColor: '#009387',
      },
@@ -98,10 +100,46 @@ const HomeStackScreen = ({navigation}) => (
        fontWeight: 'bold'
      }
    }}>
-     <DetailsStack.Screen name="Details" component={DetailsScreen} options={{
+     <ChatStack.Screen name="CONVERSACIONES" component={ChatScreen} options={{
        headerLeft: () => (
-        <Icon.Button name="ios-menu" size={25} backgroundColor="#009387" onPress={() => navigation.openDrawer()}></Icon.Button>
+        <Icon.Button name="ios-arrow-round-back" size={25} backgroundColor="#009387" onPress={()=>navigation.navigate("Home")}></Icon.Button>
       )
      }} />
-   </DetailsStack.Navigator>
+   </ChatStack.Navigator>
+  );
+
+  const NotificationsStackScreen = ({navigation}) => (
+    <NotificationsStack.Navigator screenOptions={{
+      headerStyle: {
+       backgroundColor: '#694fad',
+     },
+     headerTintColor: '#fff',
+     headerTitleStyle: {
+       fontWeight: 'bold'
+     }
+   }}>
+     <NotificationsStack.Screen name="NOTIFICACIONES" component={NotificationsScreen} options={{
+       headerLeft: () => (
+        <Icon.Button name="ios-arrow-round-back" size={25} backgroundColor="#694fad" onPress={()=>navigation.navigate("Home")}></Icon.Button>
+      )
+     }} />
+   </NotificationsStack.Navigator>
+  );
+
+  const SettingsStackScreen = ({navigation}) => (
+    <SettingsStack.Navigator screenOptions={{
+      headerStyle: {
+       backgroundColor: '#d02860',
+     },
+     headerTintColor: '#fff',
+     headerTitleStyle: {
+       fontWeight: 'bold'
+     }
+   }}>
+     <SettingsStack.Screen name="CONFIGURACION" component={SettingsScreen} options={{
+       headerLeft: () => (
+        <Icon.Button name="ios-arrow-round-back" size={25} backgroundColor="#d02860" onPress={()=>navigation.navigate("Home")}></Icon.Button>
+      )
+     }} />
+   </SettingsStack.Navigator>
   );

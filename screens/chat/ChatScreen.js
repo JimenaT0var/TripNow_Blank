@@ -8,7 +8,7 @@ import {
     StatusBar,
     Button } from 'react-native';
 
-const DetailsScreen = ({navigation}) =>{
+const ChatScreen = ({navigation}) =>{
     return (
       <View style={{flex:1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Chat Screen</Text>
@@ -32,7 +32,7 @@ const DetailsScreen = ({navigation}) =>{
     );
   };
 
-  export default DetailsScreen;
+  export default ChatScreen;
 
   const styles = StyleSheet.create({
       container: {

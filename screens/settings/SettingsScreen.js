@@ -9,10 +9,10 @@ import {
     Button } from 'react-native';
 
 
- const ProfileScreen = () =>{
+ const SettingsScreen = () =>{
     return (
         <View style={styles.container}>
-            <Text>Notifications Screen</Text>
+            <Text>Settings Screen</Text>
             <Button
               title="Click Here"
               onPress={() => alert('Button Clicked!')}
@@ -21,7 +21,7 @@ import {
         );
       };
 
-export default ProfileScreen;
+export default SettingsScreen;
 
 const styles = StyleSheet.create({
     container: {
