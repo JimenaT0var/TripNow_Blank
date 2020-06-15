@@ -9,7 +9,7 @@ import {
     Button } from 'react-native';
 
 
- const ExploreScreen = () =>{
+ const SettingsScreen = () =>{
     return (
         <View style={styles.container}>
             <Text>Settings Screen</Text>
@@ -21,7 +21,7 @@ import {
         );
       };
 
-export default ExploreScreen;
+export default SettingsScreen;
 
 const styles = StyleSheet.create({
     container: {
