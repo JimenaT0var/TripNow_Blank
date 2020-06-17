@@ -37,3 +37,9 @@ export default function ChatStack() {
 		</Stack.Navigator>
 	);
 }
+
+const styles = StyleSheet.create({
+	SearchBar: {
+		marginBottom: 20,
+	},
+});

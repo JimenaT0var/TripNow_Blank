@@ -8,6 +8,7 @@ import {
 	FlatList,
 	Image,
 } from 'react-native';
+
 import { useNavigation } from '@react-navigation/native';
 import { Button, SearchBar, ListItem, Icon } from 'react-native-elements';
 
@@ -15,6 +16,21 @@ export default function ChatScreen(props) {
 	const [serach, setSerach] = useState('');
 	const { navigation } = props;
 	const navigationScreen = useNavigation();
+
+	const list = [
+		{
+			name: 'Jesus Suarez',
+			avatar_url:
+				'https://live.mrf.io/statics/i/ps/www.movilzona.es/app/uploads/2019/05/Foto-de-Perfil-en-WhatsApp-696x364.jpg?width=1200&enable=upscale',
+			subtitle: 'Vice President',
+		},
+		{
+			name: 'Chris Jackson',
+			avatar_url:
+				'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+			subtitle: 'Vice Chairman',
+		},
+	];
 
 	return (
 		<ScrollView>
@@ -25,33 +41,23 @@ export default function ChatScreen(props) {
 				value={serach}
 			/>
 
-			<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-				<Text>MENSAJES RECIBIDOS</Text>
-				<Button
-					title="Chat con usuario"
+			{list.map((l, i) => (
+				<ListItem
+					key={i}
+					leftAvatar={{ source: { uri: l.avatar_url } }}
+					title={l.name}
+					subtitle={l.subtitle}
+					bottomDivider
+					chevron
 					onPress={() => navigationScreen.navigate('conversation')}
+					checkmark
 				/>
-				{/*
-			<Button
-				title="Ir a la pantalla de conversaciones"
-				onPress={() => navigation.navigate('conversacion')} //es el name del componente ChatStack
-			/>
-			<Button title="Atras" onPress={() => navigation.goBack()} />
-			<Button
-				title="Go to the firts screen"
-				onPress={() => navigation.popToTop()}
-			/> */}
-			</View>
+			))}
 		</ScrollView>
 	);
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
 	SearchBar: {
 		marginBottom: 20,
 	},
