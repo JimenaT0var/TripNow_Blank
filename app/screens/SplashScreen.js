@@ -26,15 +26,15 @@ const SplashScreen = ({ navigation }) => {
 				/>
 			</View>
 			<Animatable.View style={styles.footer} animation="fadeInUpBig">
-				<Text style={styles.title}>Stay connected with averyone!</Text>
-				<Text style={styles.text}>Sign in with account</Text>
+				<Text style={styles.title}>Trip-Now</Text>
+				<Text style={styles.text}>Inicia Sesion Con Tu Cuenta</Text>
 				<View style={styles.button}>
 					<TouchableOpacity onPress={() => navigation.navigate('SignInScreen')}>
 						<LinearGradient
 							colors={['#9963F2', '#63CFF2']}
 							style={styles.signIn}
 						>
-							<Text style={styles.textSign}>Get Started</Text>
+							<Text style={styles.textSign}>Empieza Ahora</Text>
 							<MaterialIcons name="navigate-next" color="#fff" size={20} />
 						</LinearGradient>
 					</TouchableOpacity>

@@ -61,7 +61,7 @@ const SignInScreen = ( { navigation } ) => {
         <View style={styles.container}>
             <StatusBar backgroundColor="#496EF9" barStyle="light-content" />
             <View style={styles.header}>
-                <Text style={styles.text_header}>Iniciar Session</Text>
+                <Text style={styles.text_header}>Inicio De Sesión</Text>
             </View>
             <Animatable.View
                 animation="fadeInUpBig"
@@ -127,14 +127,19 @@ const SignInScreen = ( { navigation } ) => {
                 </View>
 
                 <View style={styles.button}>
-                    <TouchableOpacity onPress={() => navigation.navigate( 'MainTabScreen' )} >
+                    <TouchableOpacity onPress={() => navigation.navigate( 'MainTabScreen' )} 
+                            style={[ styles.signIn, {
+                            borderColor: '#496EF9',
+                            borderWidth: 1,
+                            marginTop: 15
+                        } ]} >
                         <LinearGradient
                             colors={[ '#9963F2', '#63CFF2' ]}
                             style={styles.signIn}
                         >
                             <Text style={[ styles.textSign, {
                                 color: '#fff'
-                            } ]}>Sign In</Text>
+                            } ]}>Iniciar Sesión</Text>
                         </LinearGradient>
                     </TouchableOpacity>
                     <TouchableOpacity
@@ -147,7 +152,7 @@ const SignInScreen = ( { navigation } ) => {
                     >
                         <Text style={[ styles.textSign, {
                             color: '#496EF9'
-                        } ]}>Sign Up</Text>
+                        } ]}>Registrarse</Text>
                     </TouchableOpacity>
                 </View>
             </Animatable.View>

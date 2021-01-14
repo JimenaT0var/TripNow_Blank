@@ -107,7 +107,7 @@ import Feather from 'react-native-vector-icons/Feather';
                         size={20}
                     />
                     <TextInput 
-                        placeholder="Usuario"
+                        placeholder="Correo Electrónico"
                         style={styles.textInput}
                         autoCapitalize="none"
                         onChangeText={(val)=>textInputChange(val)}
@@ -158,7 +158,7 @@ import Feather from 'react-native-vector-icons/Feather';
                     </TouchableOpacity>                 
                 </View>
 
-                <Text style={[styles.text_footer, {marginTop: 27}]}>Verificar</Text>
+                <Text style={[styles.text_footer, {marginTop: 27}]}>Confirma Tu Contraseña</Text>
                 <View style={styles.action}>
                     <Feather 
                         name="lock"
@@ -201,9 +201,10 @@ import Feather from 'react-native-vector-icons/Feather';
                         size={20}
                     />
                     <TextInput 
-                        placeholder="Usuario"
+                        placeholder="Número Telefono"
                         style={styles.textInput}
-                        autoCapitalize="none"
+                        keyboardType='numeric'
+                        maxLength={10} 
                         onChangeText={(val)=>textInputChange2(val)}
                     />
                     {data.check_textInputChange ? 
@@ -220,16 +221,21 @@ import Feather from 'react-native-vector-icons/Feather';
                 </View>
 
                 <View style={styles.button}>
-                  <TouchableOpacity onPress={()=>navigation.navigate('MainTabScreen')}>
-                    <LinearGradient
-                        colors={['#9963F2','#63CFF2']}
-                        style={styles.signIn}
-                    >
-                        <Text style={[styles.textSign,{
-                            color:'#fff'
-                        }]}>Sign Up</Text>
-                    </LinearGradient>
-                  </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>navigation.navigate('MainTabScreen')}
+                        style={[ styles.signIn, {
+                            borderColor: '#496EF9',
+                            borderWidth: 1,
+                            marginTop: 15
+                        } ]} >
+                        <LinearGradient
+                            colors={[ '#9963F2', '#63CFF2' ]}
+                              style={styles.signIn}
+                        >
+                            <Text style={[ styles.textSign, {
+                                color: '#fff'
+                            } ]}>Registrarse</Text>
+                        </LinearGradient>
+                    </TouchableOpacity>
                   
                     <TouchableOpacity
                         onPress={() => navigation.goBack()}
@@ -241,7 +247,7 @@ import Feather from 'react-native-vector-icons/Feather';
                     >
                         <Text style={[styles.textSign,{
                             color: '#496EF9'
-                        }]}>Sign In</Text>
+                        }]}>Iniciar Sesión</Text>
                     </TouchableOpacity>
                 </View>
             </Animatable.View>
